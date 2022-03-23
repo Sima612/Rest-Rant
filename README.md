@@ -28,6 +28,7 @@ Rest-Rant is an app where users can review restuarants.
 |    GET        |               *                       |   Home page   |
 
 ## PLACES
+|   Field     |   Type    |
 |   ---       |   ---     |
 |   id        |           |
 |   name      |   string  |  
