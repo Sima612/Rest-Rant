@@ -2,6 +2,7 @@
 
 Rest-Rant is an app where users can review restuarants.
 
+## PLANNING
 1.  Writing user stories:
 -   Fill in blanks * As a __(user type)__ I need __(feature)__ so I can __(action)__
 
@@ -25,3 +26,12 @@ Rest-Rant is an app where users can review restuarants.
 |   POST        |    /places/:id/edit/rant              |   Home page   |
 |   DELETE      |    /places/:id/edit/rant/:rantId      |   Home page   |
 |    GET        |               *                       |   Home page   |
+
+## PLACES
+|   ---       |   ---     |
+|   id        |           |
+|   name      |   string  |  
+|   city      |   string  |
+|   state     |   string  |  
+|   cuisines  |   string  |
+|   pic       |   string  |
