@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 
 // ERROR ROUTE
 app.get('*', (req, res) => {
-    res.status(404).send('<h1>ERROR 404 PAGE</h1>')
+    res.render('error404')
 })
 
 app.listen(process.env.PORT)
