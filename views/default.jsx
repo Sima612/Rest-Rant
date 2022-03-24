@@ -10,9 +10,6 @@ function Def(html) {
             </head>
             <body>
                 {html.children}
-                <a href="/places">
-                    <button className='btn-primary'>Places Page</button>
-                </a>
             </body>
         </html>
     )
