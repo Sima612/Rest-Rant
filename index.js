@@ -6,6 +6,7 @@ const app = express()
 // DEFINING VIEW ENGINE *JSX*
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+app.use(express.static('public'))
 
 // IMPORTING ROUTER
 app.use('/places', require('./controllers/places'))
