@@ -7,7 +7,7 @@ router.get('/', (req,res) => {
         city: 'Worcester',
         name: 'Taste-Tea Rolls',
         cuisines: 'Desserts',
-        pic: ''
+        pic: 'https://lh3.googleusercontent.com/-3CCJneswIxM/W1hK9q34QpI/AAAAAAAAKjY/dkn4nLiVBd4Rtpr7PRK7vuFef2DaA8HwgCLIBGAYYCw/w768-h768-n-o-k-v1/'
     }]
     res.render('places/index', {places})
 })

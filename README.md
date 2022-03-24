@@ -14,18 +14,18 @@ Rest-Rant is an app where users can review restuarants.
 
 ## TABLE ROUTES
 |   Method      |               Path                    |   Purpose     |
-|   ------      |   ------------------------------      |   --------    |
+|   ---      |   ---      |   ---    |
 |    GET        |    /                                  |   Home page   |
-|    GET        |    /places                            |   Home page   |
-|   POST        |    /places                            |   Home page   |
-|    GET        |    /places/new                        |   Home page   |
-|    GET        |    /places/:id                        |   Home page   |
-|    PUT        |    /places/:id                        |   Home page   |
-|    GET        |    /places/:id/edit                   |   Home page   |
-|   DELETE      |    /places/:id                        |   Home page   |
-|   POST        |    /places/:id/edit/rant              |   Home page   |
-|   DELETE      |    /places/:id/edit/rant/:rantId      |   Home page   |
-|    GET        |               *                       |   Home page   |
+|    GET        |    /places                            |   Places index page   |
+|   POST        |    /places                            |   Create new page   |
+|    GET        |    /places/new                        |   For page for creating a new place   |
+|    GET        |    /places/:id                        |   Details about a particular place   |
+|    PUT        |    /places/:id                        |   Update a particular place   |
+|    GET        |    /places/:id/edit                   |   Form page for editing an existing place   |
+|   DELETE      |    /places/:id                        |   Delete a particular place   |
+|   POST        |    /places/:id/edit/rant              |   Create a rant (comment) about a particular place   |
+|   DELETE      |    /places/:id/edit/rant/:rantId      |   Delete a rant (comment) about a particular place  |
+|    GET        |               *                       |   404 page (matches any route not defined above)   |
 
 ## PLACES
 |   Field     |   Type         |
