@@ -5,8 +5,35 @@ function new_form() {
     return (
         <Def>
             <main>
-                <title>Form Page</title>
                 <h1>Add a New Place</h1>
+                <form action="/places" method='POST'>
+                    <div className='form-group'>
+                        <label htmlFor="name">Place Name</label>
+                        <input id="name" name="name" className='form-control' required/>
+                    </div>
+                    
+                    <div className='form-group'>
+                        <label htmlFor="pic">Place Picture</label>
+                        <input type="url" id="pic" name="pic" className='form-control'/>
+                    </div>
+                    
+                    <div className='form-group'>
+                        <label htmlFor="state">State</label>
+                        <input id="state" name="state" className='form-control'/>
+                    </div>
+                    
+                    <div className='form-group'>
+                        <label htmlFor="city">City</label>
+                        <input id="city" name="city" className='form-control'/>
+                    </div>
+                    
+                    <div className='form-group'>
+                        <label htmlFor="cuisines">Cuisines</label>
+                        <input id="cuisines" name="cuisines" className='form-control' required/>
+                    </div>
+
+                    <input type="submit" value="Add New Place" className='btn btn-primary'/>
+                </form>
             </main>
         </Def>
     )
