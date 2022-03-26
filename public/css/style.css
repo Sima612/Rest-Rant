@@ -2,3 +2,10 @@ h1 {
     text-align: center;
     color: cornflowerblue;
 }
+.wrapper {
+    min-height: 100%;
+}
+
+.push {
+    height: 50px;
+}
