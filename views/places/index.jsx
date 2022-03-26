@@ -18,7 +18,7 @@ function index(data) {
     return (
         <Def>
             <main>
-                <h1>PLACES TO RAVE ABOUT</h1>
+                <h1>PLACES TO RANT OR RAVE ABOUT</h1>
                 <div className='row'>
                     {placesFormatted}
                 </div>
