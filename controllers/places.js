@@ -1,5 +1,6 @@
 // ROUTER
 const router = require('express').Router()
+const { Router } = require('express')
 const places = require('../models/places.js')
 
 // ROUTE FOR NEW PLACES
@@ -22,6 +23,17 @@ router.get('/', (req,res) => {
     res.render('places/index', {places})
 })
 
+// DELETE ROUTE
+router.delete('/:id', (req, res) => {
+    let id = Number(req.params.id)
+    if(isNaN(id)) {res.render('error404')}
+    else if(!places[id]) {res.render('error404')}
+    else {
+        places.splice(id, 1)
+        res.redirect('/places')
+    }
+})
+
 // SHOW ROUTE
 router.get('/:id', (req, res) => {
     let id = Number(req.params.id)
@@ -31,5 +43,7 @@ router.get('/:id', (req, res) => {
 
     res.render('places/show', {places: places[id], id})
 })
+
+
 
 module.exports = router
