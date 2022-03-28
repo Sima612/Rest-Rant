@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
     else if(!places[id]) {res.render('error404')}
     else {res.render('places/show')}
 
-    res.render('places/show', {places: places[id]})
+    res.render('places/show', {places: places[id], id})
 })
 
 module.exports = router

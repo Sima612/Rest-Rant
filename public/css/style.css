@@ -1,13 +1,19 @@
-h1 {
+
+h1, h2 {
+    padding: 10px 0;
     text-align: center;
     color: cornflowerblue;
+}
+h3 {
+    padding: 10px 0;
+    color: lightblue;
 }
 .wrapper {
     min-height: 100%;
 }
 
 .push {
-    height: 50px;
+    height: 20px;
 }
 
 nav {
