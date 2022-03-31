@@ -8,6 +8,7 @@ function Def(html) {
             <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css" rel="stylesheet"/>
             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
             <link rel="stylesheet" href="/css/style.css"></link>
+            <link rel="shortcut icon" type="image/jpg" href="./images/cookieIcon.png" />
             <title>REST-RANT</title>
             </head>
             <body>

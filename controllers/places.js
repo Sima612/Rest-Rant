@@ -23,6 +23,29 @@ router.get('/', (req,res) => {
     res.render('places/index', {places})
 })
 
+// EDIT ROUTE
+router.get('/:id/edit', (req, res) => {
+    let id = Number(req.params.id)
+    if(isNaN(id)) {res.render('error404')}
+    else if(!places[id]) {res.render('error404')}
+    else {res.render('places/edit', {places: places[id], id} )}
+
+    res.render('places/edit')
+})
+
+// PUT ROUTE
+router.put('/:id', (req, res) => {
+    let id = Number(req.params.id)
+    if(isNaN(id)) {res.render('error404')}
+    else if(!places[id]) {res.render('error404')}
+    else {
+        if(!req.body.pic) {req.body.pic = 'https://www.graduatehotels.com/berkeley/wp-content/uploads/sites/7/2019/11/9-Graduate_Hotel_256_1600x1200-1330x880-c-default.jpg'}
+        if(!req.body.city) {req.body.city = 'https://thumbs.dreamstime.com/b/random-san-francisco-city-street-downtown-81047097.jpg'}
+        if(!req.body.state) {req.body.state = 'USA'}
+        
+        res.redirect(`/places/${id}`)}
+})
+
 // DELETE ROUTE
 router.delete('/:id', (req, res) => {
     let id = Number(req.params.id)
@@ -32,16 +55,6 @@ router.delete('/:id', (req, res) => {
         places.splice(id, 1)
         res.redirect('/places')
     }
-})
-
-// EDIT ROUTE
-router.get('/:id/edit', (req, res) => {
-    let id = Number(req.params.id)
-    if(isNaN(id)) {res.render('error404')}
-    else if(!places[id]) {res.render('error404')}
-    else {res.render('places/edit', {places: places[id]} )}
-
-    res.render('places/edit')
 })
 
 // SHOW ROUTE
