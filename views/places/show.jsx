@@ -9,7 +9,7 @@ function show(data) {
                 <div className='row'>
                     <div className='col-md-5'>
                         <h2>
-                            {data.places.name}
+                            {data.place.name}
                         </h2>
                         
                         <h3>Rating</h3>
@@ -17,13 +17,13 @@ function show(data) {
                         
                         <h3>Description</h3>
                         <p>
-                            Located in {data.places.city}, {data.places.state}, and serving {data.places.cuisines}
+                            Located in {data.place.city}, {data.place.state}, and serving {data.place.cuisines}
                         </p>
                     </div>
                         
                     <div className='col-md-5'>
                         <img className='img-fluid'
-                        src={data.places.pic} alt={data.places.name} />
+                        src={data.place.pic} alt={data.place.name} />
                     </div>
 
                     <div>
