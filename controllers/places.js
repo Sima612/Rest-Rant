@@ -52,9 +52,7 @@ router.get('/new', (req,res) => {
 router.get('/:id/edit', (req, res) => {
     places.findById(req.params.id)
     .then(placeFound => {
-        res.render('edit', {
-            places: placeFound
-        })
+        res.render('edit', {placeFound})
     })
     .catch(err => {
         res.render('error404')
@@ -67,24 +65,12 @@ router.get('/:id', (req, res) => {
     .then(place => {
         res.render('places/show', {place})
     })
-    .catch(err => {
-        console.log('err', err)
-        res.render('error404')
-    })
+    .catch(err => {res.render('error404')})
 })
 
 // PUT ROUTE
 router.put('/:id', (req, res) => {
     res.send('PUT /places/:id stub')
-})
-
-// DELETE ROUTE
-router.delete('/:id', (req, res) => {
-    places.findByIdAndDelete(req.params.id)
-    .then(deletedPlace => {
-        res.status(303).redirect('/places')
-    })
-    .catch(err => {res.render('error404')})
 })
 
 router.post('/:id/rant', (req, res) => {
@@ -94,5 +80,14 @@ router.post('/:id/rant', (req, res) => {
 // router.delete('/:id/rant/:rantId', (req, res) => {
 //     res.send('GET /places/:id/rant/:rantId stub')
 // })
+
+// DELETE ROUTE
+router.delete('/:id', (req, res) => {
+    db.Place.findByIdAndDelete(req.params.id)
+    .then(deletedPlace => {
+        res.status(303).redirect('/places', {deletedPlace})
+    })
+    .catch(err => {res.render('error404')})
+})
 
 module.exports = router
