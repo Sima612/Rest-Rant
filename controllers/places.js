@@ -1,8 +1,8 @@
 // ROUTER
 const router = require('express').Router()
-const { Router } = require('express')
-const places = require('../models/places.js')
 const db = require('../models')
+const places = require('../models/places.js')
+const { Router } = require('express')
 
 // INDEX ROUTE 
 router.get('/', (req, res) => {
@@ -17,20 +17,48 @@ router.get('/', (req, res) => {
 
 })
 
-// POST /places ROUTE
+// POST ROUTE ;  TAKE IN FORM DATA AND ADD DATA TO DATABASE
 router.post('/', (req, res) => {
+    if (!req.body.pic) { req.body.pic = undefined }
+    if (!req.body.city) { req.body.city = undefined }
+    if (!req.body.state) { req.body.state = undefined }
+    
     db.Place.create(req.body)
     .then(() => {
         res.redirect('/places')
     })
     .catch(err => {
-        res.render('error404')
+        if(err && err.name == 'ValidationError') {
+            let message = 'ValidationError: '
+            for (var field in err.errors) {
+                message += `${field} was ${err.errors[field].value}. `
+                message += `${err.errors[field].message}`
+            }
+            console.log('Validation error message', message)
+
+            res.render('places/new', {message})
+        } else {
+            res.render('error404')
+        }
     })
 })
 
 // NEW ROUTE
 router.get('/new', (req,res) => {
     res.render('places/new')
+})
+
+// EDIT ROUTE
+router.get('/:id/edit', (req, res) => {
+    places.findById(req.params.id)
+    .then(placeFound => {
+        res.render('edit', {
+            places: placeFound
+        })
+    })
+    .catch(err => {
+        res.render('error404')
+    })
 })
 
 // SHOW ROUTE
@@ -52,19 +80,19 @@ router.put('/:id', (req, res) => {
 
 // DELETE ROUTE
 router.delete('/:id', (req, res) => {
-    res.send('DELETE /places/:id stub')
+    places.findByIdAndDelete(req.params.id)
+    .then(deletedPlace => {
+        res.status(303).redirect('/places')
+    })
+    .catch(err => {res.render('error404')})
 })
 
-// EDIT ROUTE
-router.get('/:id/edit', (req, res) => {
-    res.send('GET edit form stub')
-})
 router.post('/:id/rant', (req, res) => {
     res.send('GET /places/:id/rant stub')
 })
 
-router.delete('/:id/rant/:rantId', (req, res) => {
-    res.send('GET /places/:id/rant/:rantId stub')
-})
+// router.delete('/:id/rant/:rantId', (req, res) => {
+//     res.send('GET /places/:id/rant/:rantId stub')
+// })
 
 module.exports = router

@@ -22,15 +22,15 @@ function show(data) {
                         <h4>
                             Serving {data.place.cuisines}
                         </h4>
-                        <div className='button'>
-                            <a href={`/places/${data.id}/edit`} className='btn btn-warning'>Edit</a>
+                        
+                        <a href={`/places/${data.id}/edit`} className='btn btn-warning'>Edit</a>
                             
-                            <form action={`/places/${data.id}?_method=DELETE`} method="POST">
-                                <button type="submit" className='btn btn-danger'>
-                                    Delete
-                                </button>
-                            </form>
-                        </div>
+                        <form action={`/places/${data.id}?_method=DELETE`} method="POST">
+
+                            <button type="submit" className='btn btn-danger'>Delete</button>
+
+                        </form>
+                        
                     </div>
                         
                     <div className='col-md-5'>

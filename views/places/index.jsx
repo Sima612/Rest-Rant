@@ -11,8 +11,7 @@ function index(data) {
                     </a>
                 </h2>
                 <p className='text-left'>{place.cuisines}</p>
-                <img className='img-fluid'
-                src={place.pic} alt={place.name} />
+                <img className='img-fluid' src={place.pic} alt={place.name}/>
                 <p className='text-left'>
                     Located in {place.city}, {place.state}
                 </p>

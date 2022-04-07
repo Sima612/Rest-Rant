@@ -7,7 +7,11 @@ const placeSchema = new mongoose.Schema({
     cuisines: {type: String, required: true},
     city: {type: String, default: 'Anytown'},
     state: {type: String, default: 'USA'},
-    founded: Number
+    founded: {
+        type: Number,
+        min: [1673, 'Surely not that old?!'],
+        max: [new Date().getFullYear(), 'Hey, this year is in the future!']
+    }
 })
 
 // METHOD TO CALL TO OUTPUT STRING CONTAINING SEVERAL FIELDS
@@ -17,18 +21,3 @@ placeSchema.methods.showEstablished = function() {
 
 // CREATING AND EXPORTING THE MODEL FROM HERE
 module.exports = mongoose.model('Place', placeSchema)
-
-
-// module.exports = [{
-//     state: 'MA',
-//     city: 'Worcester',
-//     name: 'Taste-Tea Rolls',
-//     cuisines: 'Desserts, Ice-creams',
-//     pic: '/images/taste-tea.jpeg'
-// }, {
-//     state: 'CA',
-//     city: 'Long Beach',
-//     name: 'Monorom Cambodian Restaurant',
-//     cuisines: 'Cambodian Food',
-//     pic: '/images/cambodian.jpeg'
-// }]
