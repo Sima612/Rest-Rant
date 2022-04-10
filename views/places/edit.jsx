@@ -12,7 +12,7 @@ function Edit(data) {
                     <div className='row'>
                         <div className='form-group col-md-6'>
                             <label htmlFor="name">Place Name</label>
-                            <input className='form-control' id="name" name="name"  value={data.place.name} required/>
+                            <input className='form-control' id="name" name="name"  value={data.name} required/>
                         </div>
                         
                         <div className='form-group col-md-6'>
