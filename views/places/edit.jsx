@@ -7,22 +7,22 @@ function Edit(data) {
             <main>
                 <h1>Edit Place</h1>
                 
-                <form action={`/places/${data.id}?_method=PUT`} method='POST'>
+                <form action={`/places/${data.place.id}?_method=PUT`} method='POST'>
                     
                     <div className='row'>
                         <div className='form-group col-md-6'>
                             <label htmlFor="name">Place Name</label>
-                            <input className='form-control' id="name" name="name"  value={data.name} required/>
+                            <input className='form-control' id="name" name="name"  defaultValue={data.place.name} required/>
                         </div>
                         
                         <div className='form-group col-md-6'>
                             <label htmlFor="pic">Place Picture</label>
-                            <input type="url" id="pic" name="pic" className='form-control'/>
+                            <input type="text" id="pic" name="pic" className='form-control' defaultValue={data.place.pic}/>
                         </div>
                         
                         <div className='form-group col-md-6'>
                             <label htmlFor="state">State</label>
-                            <select id="state" name="state" className='form-control'>
+                            <select id="state" name="state" defaultValue={data.place.state}className='form-control'>
                                 <option value=""></option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -79,16 +79,28 @@ function Edit(data) {
                         
                         <div className='form-group col-md-6'>
                             <label htmlFor="city">City</label>
-                            <input id="city" name="city" className='form-control'/>
+                            <input id="city" name="city" className='form-control'
+                            defaultValue={data.place.city}/>
                         </div>
                         
-                        <div className='form-group col-md-12'>
+                        <div className='form-group col-md-6'>
                             <label htmlFor="cuisines">Cuisines</label>
-                            <input id="cuisines" name="cuisines" className='form-control' required/>
+                            <input id="cuisines" name="cuisines" className='form-control' defaultValue={data.place.cuisines}
+                            required/>
                         </div>
+
+                        <div className='form-group col-md-6'>
+                            <label htmlFor="founded">Founded</label>
+                            <input className='form-control'
+                                id="founded"
+                                name='founded'
+                                value={data.place.founded} />
+                        </div>
+                        
+                        
                     </div>
-                    <br />
-                    <input type="submit" value="Add New Place" className='btn btn-primary'/>
+                    
+                    <input type="submit" value="Edit New Place" className='btn btn-primary'/>
                     
                 </form>
 

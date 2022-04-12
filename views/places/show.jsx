@@ -47,7 +47,15 @@ function show(data) {
                             <strong>- {c.author}</strong>
                         </h3>
                         <h4>Rating: {c.stars}</h4>
+
+                        <form action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`} method='POST'>
+                            <input type="submit"
+                            className='btn btn-danger'
+                            value='Delete Comment' />
+                        </form>
                     </div>
+
+                    
                 
             )
         })
@@ -77,9 +85,9 @@ function show(data) {
                         <a href={`/places/${data.place.id}/edit`} className='btn btn-warning'>Edit</a>
                             
                         <form action={`/places/${data.place.id}?_method=DELETE`} method="POST">
-
-                            <button type="submit" className='btn btn-danger'>Delete</button>
-
+                            <div>
+                                <input type="submit" className='btn btn-danger'/>
+                            </div>
                         </form>
                         
                     </div>
@@ -117,8 +125,8 @@ function show(data) {
                         </div>
 
                         <div className='col-md-4 form-group'>
-                            <label htmlFor="star-rating">Star Rating</label>
-                            <input type="range" name='star-rating' id='star-rating' min={1} max={5}
+                            <label htmlFor="rating">Star Rating</label>
+                            <input type="range" name='rating' id='rating' min={1} max={5}
                             className='form-range'/>
                         </div>
 
