@@ -2,7 +2,7 @@
 const router = require('express').Router()
 const db = require('../models')
 const places = require('../models/places.js')
-const { Router } = require('express')
+// const { Router } = require('express')
 
 // INDEX ROUTE 
 router.get('/', (req, res) => {

@@ -7,5 +7,27 @@
     "method-override": "^3.0.0",
     "mongoose": "^6.2.9",
     "react": "^18.0.0"
-  }
+  },
+  "name": "rest-rant",
+  "description": "Rest-Rant is an app where users can review restuarants.",
+  "version": "1.0.0",
+  "engines": {
+    "node": "14.15.4"
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sima612/Rest-Rant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sima612/Rest-Rant/issues"
+  },
+  "homepage": "https://github.com/Sima612/Rest-Rant#readme"
 }
